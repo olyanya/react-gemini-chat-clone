@@ -10,6 +10,7 @@ const ContextProvider = (props) => {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const delayPara = (index, nextWord) => {
     setTimeout(function () {
@@ -67,6 +68,8 @@ const ContextProvider = (props) => {
     input,
     setInput,
     newChat,
+    selectedCard,
+    setSelectedCard,
   };
 
   return (

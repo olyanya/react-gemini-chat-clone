@@ -12,7 +12,14 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    selectedCard,
+    setSelectedCard,
   } = useContext(Context);
+
+  const handleCardClick = (prompt) => {
+    setSelectedCard(prompt);
+    setInput(prompt);
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -36,22 +43,53 @@ const Main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div
+                className={`card ${
+                  selectedCard ===
+                  "Suggest beautiful places to see on an upcoming road trip in Canada"
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() =>
+                  handleCardClick(
+                    "Suggest beautiful places to see on an upcoming road trip in Canada"
+                  )
+                }
+              >
                 <p>
                   Suggest beautiful places to see on an upcoming road trip in
                   Canada
                 </p>
                 <img src={assets.compass_icon} alt="card" />
               </div>
-              <div className="card">
+              <div
+                className={`card ${
+                  selectedCard === "How to write a poem?" ? "active" : ""
+                }`}
+                onClick={() => handleCardClick("How to write a poem?")}
+              >
                 <p>How to write a poem?</p>
                 <img src={assets.bulb_icon} alt="card" />
               </div>
-              <div className="card">
+              <div
+                className={`card ${
+                  selectedCard === "What is an example of concept art?"
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() =>
+                  handleCardClick("What is an example of concept art?")
+                }
+              >
                 <p>What is an example of concept art?</p>
                 <img src={assets.message_icon} alt="card" />
               </div>
-              <div className="card">
+              <div
+                className={`card ${
+                  selectedCard === "What is HTML used for?" ? "active" : ""
+                }`}
+                onClick={() => handleCardClick("What is HTML used for?")}
+              >
                 <p>What is HTML used for?</p>
                 <img src={assets.code_icon} alt="card" />
               </div>
